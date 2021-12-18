@@ -13,16 +13,25 @@ public class UserService {
     private UserRepository userRepository ;
     @Autowired
     public UserService (UserRepository userRepository){
+
         this.userRepository = userRepository ;
     }
     public Users registerUser (Users user){
+
         return  this.userRepository.save(user);
     }
     public List<Users>  findAllUsers (){
+
         return this.userRepository.findAll();
     }
-    public void deleteUser (Long id){
-        this.userRepository.deleteById(id);
+    public boolean deleteUser (Long id){
+        try{
+            this.userRepository.deleteById(id);
+            return true;
+        }catch(Exception ex){
+            return false;
+        }
+
     }
 
 }
