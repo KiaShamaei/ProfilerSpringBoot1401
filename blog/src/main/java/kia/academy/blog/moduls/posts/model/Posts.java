@@ -8,6 +8,7 @@ import org.apache.catalina.User;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "post_tb1")
@@ -19,6 +20,18 @@ public class Posts {
     private String title;
     private String body;
     private String cover;
+    @ManyToMany
+    @JoinTable(name="posts_categories")
+    private List<Category> categories ;
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
+
     @ManyToOne
     @JoinColumn(name = "user_fk")
     private Users users;
