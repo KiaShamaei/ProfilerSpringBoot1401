@@ -13,10 +13,11 @@ import java.util.List;
 @Entity
 @Table(name = "post_tb1")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class , property = "id")
+
 public class Posts {
     @Id
     @GeneratedValue
-    private Long Id ;
+    private Long id ;
     private String title;
     private String body;
     private String cover;
@@ -52,7 +53,7 @@ public class Posts {
     public Posts(){}
 
     public Posts(Long id, String title, String body, String cover, Users users, LocalDateTime createdAt, LocalDateTime updateAt) {
-        Id = id;
+        id = id;
         this.title = title;
         this.body = body;
         this.cover = cover;
@@ -62,11 +63,11 @@ public class Posts {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        id = id;
     }
 
     public String getTitle() {
