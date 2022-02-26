@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rooms in London Hotel</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body>
+<h1>This is a project from Linkdine tutorial </h1>
+<table>
+    <tr>
+        <th>Room number</th>
+        <th>Name</th>
+        <th>Bed-info</th>
+    </tr>
+
+    <tr th:each="room : ${rooms}">
+        <td th:text="${room.room_number}"></td>
+        <td th:text="${room.name}"></td>
+        <td th:text="${room.bed_info}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
